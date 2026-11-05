@@ -2,7 +2,7 @@ git checkout main
 git pull origin main
 
 $branch = "bernabe-inche"
-$allowedPath = "pages/$branch"
+$allowedPath = "proyecto/$branch"
 
 Write-Host ""
 Write-Host "Procesando rama: $branch"
@@ -22,7 +22,7 @@ if (Test-Path $allowedPath) {
     Remove-Item $allowedPath -Recurse -Force
 }
 
-# Copia SOLO la versión final de pages/$branch desde la rama hacia main
+# Copia SOLO la versión final de proyecto/$branch desde la rama hacia main
 git restore --source=$branch --worktree --staged $allowedPath
 
 git add -A $allowedPath

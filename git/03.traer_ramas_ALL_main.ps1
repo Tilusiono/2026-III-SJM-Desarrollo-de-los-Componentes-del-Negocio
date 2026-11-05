@@ -5,7 +5,7 @@ $branches = git branch --format="%(refname:short)" | Where-Object { $_ -ne "main
 
 foreach ($branch in $branches) {
 
-    $allowedPath = "pages/$branch"
+    $allowedPath = "proyecto/$branch"
 
     Write-Host ""
     Write-Host "Procesando rama: $branch"
@@ -15,7 +15,7 @@ foreach ($branch in $branches) {
 
     git fetch origin $branch
 
-    # Verifica si existe pages/$branch en la rama
+    # Verifica si existe proyecto/$branch en la rama
     git ls-tree -d $branch $allowedPath | Out-Null
 
     if ($LASTEXITCODE -ne 0) {
@@ -28,7 +28,7 @@ foreach ($branch in $branches) {
         Remove-Item $allowedPath -Recurse -Force
     }
 
-    # Copia SOLO la versión final de pages/$branch desde la rama hacia main
+    # Copia SOLO la versión final de proyecto/$branch desde la rama hacia main
     git restore --source=$branch --worktree --staged $allowedPath
 
     git add -A $allowedPath

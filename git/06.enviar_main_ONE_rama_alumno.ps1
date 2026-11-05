@@ -1,5 +1,5 @@
 $branch = "bernabe-inche"
-$path = "pages/$branch"
+$path = "proyecto/$branch"
 
 Write-Host "Sync main -> $branch (CONTROLADO)"
 
@@ -13,7 +13,7 @@ git pull origin $branch
 
 # 3. LIMPIAR TODO lo peligroso primero
 git rm -r --ignore-unmatch git
-git rm -r --ignore-unmatch pages
+git rm -r --ignore-unmatch proyecto
 
 # 4. TRAER SOLO lo permitido (NO usar ".")
 git checkout main -- $path

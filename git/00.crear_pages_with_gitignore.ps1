@@ -12,7 +12,7 @@ foreach ($branch in $branches) {
     git switch $branch
     if ($LASTEXITCODE -ne 0) { throw "No se pudo cambiar a $branch." }
 
-    $folder = Join-Path "pages" $branch
+    $folder = Join-Path "proyecto" $branch
     $gitignore = Join-Path $folder ".gitignore"
 
     New-Item -ItemType Directory -Path $folder -Force | Out-Null

@@ -2,13 +2,13 @@
 git checkout main
 git pull origin main
 
-# 2. obtener ramas locales desde pages/
-$branches = Get-ChildItem pages -Directory
+# 2. obtener ramas locales desde proyecto/
+$branches = Get-ChildItem proyecto -Directory
 
 foreach ($student in $branches) {
 
     $branch = $student.Name
-    $path = "pages/$branch"
+    $path = "proyecto/$branch"
 
     Write-Host "`n============================"
     Write-Host "Sync -> $branch"
@@ -20,7 +20,7 @@ foreach ($student in $branches) {
 
     # 🔥 limpiar cosas peligrosas
     git rm -r --ignore-unmatch git
-    git rm -r --ignore-unmatch pages
+    git rm -r --ignore-unmatch proyecto
 
     # 🔥 traer SOLO lo permitido desde main
     git checkout main -- $path
