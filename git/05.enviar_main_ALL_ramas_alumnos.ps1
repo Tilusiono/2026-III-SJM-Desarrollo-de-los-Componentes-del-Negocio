@@ -20,6 +20,7 @@ foreach ($student in $branches) {
 
     # 🔥 limpiar cosas peligrosas
     git rm -r --ignore-unmatch git
+    git rm -r --ignore-unmatch pages
     git rm -r --ignore-unmatch proyecto
 
     # 🔥 traer SOLO lo permitido desde main
