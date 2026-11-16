@@ -18,10 +18,10 @@ git rm -r --ignore-unmatch proyecto
 
 # 4. TRAER SOLO lo permitido (NO usar ".")
 git checkout main -- $path
-git checkout main -- npm profile demo docs
+git checkout main -- profile demo docs
 
 # 5. agregar SOLO lo necesario
-git add $path npm profile demo docs
+git add $path profile demo docs
 
 # 6. commit
 if (git status --porcelain) {
